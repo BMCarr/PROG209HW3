@@ -1,0 +1,22 @@
+body {
+    background-color: #b4f4e6;
+    padding: 0;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+button#btn-add {
+    text-align: center;
+    font-size: 16px;
+    color:black;
+}
+
+button#btn-show {
+    text-align: center;
+    font-size: 16px;
+    color:#651a4c;
+}
+
+input[type=text]:focus {
+    background-color: lightgrey;
+    border: 3px;
+}
