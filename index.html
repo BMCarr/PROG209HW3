@@ -12,7 +12,7 @@
     <form>  <!--form for user to enter movie title/rating/year-->
         <label for="mtitle">Movie title:</label><br>
         <input type="text" id="mtitle" name="mtitle" required><br>
-        <label for="mrating">Movie rating:</label><br>
+        <label for="mrating">Movie rating(from 1-5):</label><br>
         <input type="text" id="mrating" name="mrating" required><br>
         <label for="myear">Year released:</label><br>
         <input type="text" id="myear" name="myear" required><br>
@@ -25,9 +25,8 @@
     <br /><br />
 
     <button type="button" id="btn-show">Show Movies</button>
-    <!--TO DO: 
-    write JS code for button
-    (refer to 2-Form-fieldset-object)-->
+    <br />
+    <textarea rows="10" cols="60" id="output" ></textarea>  <!--display 10 stored movies-->
 
     <script src="javascript/main.js"></script>
 </body>

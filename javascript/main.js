@@ -1,6 +1,5 @@
-//TO DO: create array (needs to store 10 moviex max)
-//TO DO: write out movies sorted by ranking
 
+const movieArr = []; //create array to store movies
 
 //make Class called Movie
 class Movie {
@@ -20,6 +19,10 @@ function Validation() {
     let a = document.getElementById("mtitle").value;
     let b = document.getElementById("mrating").value;
     let c = document.getElementById("myear").value;
+    if (b > 5 || b < 1)
+    {
+        return true;
+    }
     if (a == null || a == "", b == null || b == "", c = null || c == "")
     {
         return true;
@@ -28,21 +31,42 @@ function Validation() {
 }
 
 //method to add fields to Movie list:
-//check IF andy fields are empty
-    //IF empty, then alert, don't save
 function AddMovie() {
-    if (Validation() == true)
+    let a = document.getElementById("mtitle").value;
+    let b = document.getElementById("mrating").value;
+    let c = document.getElementById("myear").value;
+    if (Validation() == true)   //check IF any fields are empty
     {
-        alert("Data not correct.");
+        alert("Data not correct."); //IF empty, then alert, don't save
     }
     else
     {
-        //*TO DO:
-//ELSE continue with saving:    
-//create Movie object
-//save data (store in array)
-//at end of method, tell it to clear text fields
+       let tempMovie = new Movie(a, b, c);   //create Movie object
+       movieArr.push(tempMovie);    //save data in array
+    document.getElementById("mtitle").value = "";   //at end of method, tell it to clear text fields
+    document.getElementById("mrating").value = "";
+    document.getElementById("myear").value = ""; 
     }
     return true;   
 }
 
+function CompareRanking (a, b){
+    if (a.rating < b.rating){
+        return -1;
+    }
+    if (a.rating > b.rating){
+        return 1;
+    }
+    return 0;
+}
+
+//display movies in a list
+document.getElementById("btn-show").addEventListener("click", function () { 
+    console.log(movieArr);
+    movieArr.sort(CompareRanking);      //sort movies by ranking
+    let message = "Title  Rating\n";
+    for (i = 0; i < movieArr.length; i++) {
+        message = message + movieArr[i].title + "  " + movieArr[i].rating + "\n";
+    }
+    document.getElementById("output").value = message;
+});
